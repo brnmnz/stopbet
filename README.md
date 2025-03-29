@@ -1,6 +1,6 @@
-# 🛡️ ZeroBet
+# 🛡️ StopBet
 
-ZeroBet é um app focado em **ajudar pessoas a se protegerem de sites de apostas** e manterem o foco em suas metas. Através de monitoramento de tráfego e uma interface amigável, ele oferece um escudo digital contra distrações que afetam a saúde financeira e mental.
+StopBet é um app focado em **ajudar pessoas a se protegerem de sites de apostas** e manterem o foco em suas metas. Através de monitoramento de tráfego e uma interface amigável, ele oferece um escudo digital contra distrações que afetam a saúde financeira e mental.
 
 ---
 
@@ -37,7 +37,7 @@ ZeroBet é um app focado em **ajudar pessoas a se protegerem de sites de apostas
 ## 🧱 Estrutura do Projeto
 
 ```plaintext
-ZeroBet/
+StopBet/
 ├── Views/             ← Telas do app (Home, Blog, Ativação)
 ├── ViewModels/        ← Lógicas das views (estado, chamadas)
 ├── Services/          ← Lógicas de sistema (VPN, notificações, DNS)
@@ -50,14 +50,14 @@ ZeroBet/
 Clone este repositório:
 
 ```
-git clone https://github.com/seu-usuario/ZeroBet.git
-cd ZeroBet
+git clone https://github.com/seu-usuario/StopBet.git
+cd StopBet
 ```
 
 Abra o projeto no Xcode:
 
 ```
-open ZeroBet.xcodeproj
+open StopBet.xcodeproj
 ```
 
 Execute no seu iPhone (preferencialmente com conta Apple Developer paga, para testar VPN)
