@@ -30,7 +30,7 @@ struct MainTabView: View {
                     //.navigationTitle("Configurações")
             }
             .tabItem {
-                Label("Configurações", systemImage: "gear")
+                Label("Rede de Apoio", systemImage: "person.3.fill")
             }
         }
         .accentColor(.orange)
