@@ -4,47 +4,39 @@ struct BlogSectionView: View {
     @StateObject private var viewModel = BlogViewModel()
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            
-            // 👉 Novo card horizontal
-            HStack(spacing: 0) {
-                Rectangle()
-                    .fill(Color.orange)
-                    .frame(width: UIScreen.main.bounds.width / 2, height: 120)
-                    .overlay(
-                        Text("Destaque 1")
-                            .foregroundColor(.white)
-                            .bold()
-                    )
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                ForEach(viewModel.artigos) { artigo in
+                    NavigationLink(destination: BlogDetailView(post: artigo)) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            AsyncImage(url: URL(string: artigo.image)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(height: 200)
+                            .clipped()
+                            
+                            Text(artigo.titulo)
+                                .font(.headline)
+                                .foregroundColor(.orange)
 
-                Rectangle()
-                    .fill(Color.red)
-                    .frame(width: UIScreen.main.bounds.width / 2, height: 120)
-                    .overlay(
-                        Text("Destaque 2")
-                            .foregroundColor(.white)
-                            .bold()
-                    )
-            }
-
-            // 👉 Lista vertical de artigos
-            ForEach(viewModel.artigos) { artigo in
-                NavigationLink(destination: BlogDetailView(post: artigo)) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(artigo.titulo)
-                            .font(.headline)
-                            .foregroundColor(.orange)
-                        Text(artigo.conteudo)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .lineLimit(2)
+                            Text(artigo.conteudo)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(12)
                     }
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(12)
-                    .padding(.horizontal)
                 }
+                .padding(.horizontal) // padding geral nas laterais
             }
+            .padding(.top)
         }
         .onAppear {
             viewModel.carregarArtigosMock()

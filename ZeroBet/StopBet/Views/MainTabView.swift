@@ -6,7 +6,8 @@ struct MainTabView: View {
             // Aba Início
             NavigationStack {
                 HomeView()
-                    .navigationTitle("Início")
+                    .navigationBarHidden(true)
+                    //.navigationTitle("Início")
             }
             .tabItem {
                 Label("Início", systemImage: "house.fill")
@@ -15,7 +16,8 @@ struct MainTabView: View {
             // Aba Blog
             NavigationStack {
                 BlogSectionView()
-                    .navigationTitle("Blog")
+                    .navigationBarHidden(true)
+                    //.navigationTitle("Blog")
             }
             .tabItem {
                 Label("Blog", systemImage: "book.fill")
@@ -24,7 +26,8 @@ struct MainTabView: View {
             // Aba Configurações
             NavigationStack {
                 ConfiguracoesView()
-                    .navigationTitle("Configurações")
+                    .navigationBarHidden(true)
+                    //.navigationTitle("Configurações")
             }
             .tabItem {
                 Label("Configurações", systemImage: "gear")

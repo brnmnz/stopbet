@@ -6,6 +6,16 @@ struct BlogDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                AsyncImage(url: URL(string: post.image)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(height: 200)
+                .clipped()
+                
                 Text(post.titulo)
                     .font(.largeTitle)
                     .fontWeight(.bold)
