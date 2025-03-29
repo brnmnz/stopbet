@@ -8,7 +8,7 @@ struct SplashScreenView: View {
         ZStack {
             Color.black.ignoresSafeArea()
 
-            Text("ZeroBet")
+            Text("StopBet")
                 .font(.system(size: 48, weight: .bold, design: .rounded))
                 .foregroundColor(.orange)
                 .opacity(showText ? 1 : 0)

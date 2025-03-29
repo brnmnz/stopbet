@@ -39,6 +39,13 @@ struct AtivacaoView: View {
 
             Spacer()
         }
+        .alert(item: $viewModel.mensagemErro) { erro in
+            Alert(title: Text("Erro"),
+                  message: Text(erro.mensagem),
+                  dismissButton: .default(Text("OK")) {
+                      viewModel.mensagemErro = nil
+                  })
+        }
         .padding()
     }
 }
