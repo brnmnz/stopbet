@@ -34,7 +34,7 @@ struct BlogSectionView: View {
                         .cornerRadius(12)
                     }
                 }
-                .padding(.horizontal) // padding geral nas laterais
+                .padding(.horizontal)
             }
             .padding(.top)
         }

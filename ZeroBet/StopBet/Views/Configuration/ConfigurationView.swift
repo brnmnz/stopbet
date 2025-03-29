@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct ConfiguracoesView: View {
-    @StateObject private var viewModel = ConfiguracoesViewModel()
+struct ConfigurationView: View {
+    @StateObject private var viewModel = ConfigurationViewModel()
 
     var body: some View {
         NavigationView {

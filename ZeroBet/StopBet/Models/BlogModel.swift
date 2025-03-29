@@ -1,6 +1,6 @@
 import Foundation
 
-struct BlogPost: Identifiable {
+struct BlogModel: Identifiable {
     let image: String
     let id: Int
     let titulo: String

@@ -6,7 +6,7 @@
 //
 
 import Testing
-@testable import ZeroBet
+@testable import StopBet
 
 struct ZeroBetTests {
 

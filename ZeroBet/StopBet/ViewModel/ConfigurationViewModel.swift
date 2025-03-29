@@ -1,6 +1,6 @@
 import SwiftUI
 
-class ConfiguracoesViewModel: ObservableObject {
+class ConfigurationViewModel: ObservableObject {
     @Published var nome1: String = ""
     @Published var email1: String = ""
 
@@ -12,7 +12,7 @@ class ConfiguracoesViewModel: ObservableObject {
     @Published var mensagemFeedback: String?
 
     private let userDefaultsKey = "redeDeApoioContatos"
-    @Published private(set) var contatosSalvos: [Contato] = []
+    @Published private(set) var contatosSalvos: [ContactModel] = []
 
     var botaoHabilitado: Bool {
         let contato1Valido = nome1.trimmingCharacters(in: .whitespaces).count >= 2 &&
@@ -23,18 +23,18 @@ class ConfiguracoesViewModel: ObservableObject {
             email2.isValidEmail()
         )
 
-        let contatosAtuais: [Contato] = [
-            Contato(nome: nome1, email: email1),
-            mostrarCampoExtra ? Contato(nome: nome2, email: email2) : nil
+        let contatosAtuais: [ContactModel] = [
+            ContactModel(nome: nome1, email: email1),
+            mostrarCampoExtra ? ContactModel(nome: nome2, email: email2) : nil
         ].compactMap { $0 }
 
         return contato1Valido && contato2Valido && contatosAtuais != contatosSalvos
     }
 
     func salvarContatos() {
-        let contatos: [Contato] = [
-            Contato(nome: nome1, email: email1),
-            mostrarCampoExtra ? Contato(nome: nome2, email: email2) : nil
+        let contatos: [ContactModel] = [
+            ContactModel(nome: nome1, email: email1),
+            mostrarCampoExtra ? ContactModel(nome: nome2, email: email2) : nil
         ].compactMap { $0 }
 
         if let data = try? JSONEncoder().encode(contatos) {
@@ -47,7 +47,7 @@ class ConfiguracoesViewModel: ObservableObject {
 
     func carregarContatos() {
         guard let data = UserDefaults.standard.data(forKey: userDefaultsKey),
-              let contatos = try? JSONDecoder().decode([Contato].self, from: data) else { return }
+              let contatos = try? JSONDecoder().decode([ContactModel].self, from: data) else { return }
 
         contatosSalvos = contatos
 

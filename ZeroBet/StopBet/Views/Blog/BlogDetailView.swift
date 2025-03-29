@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BlogDetailView: View {
-    let post: BlogPost
+    let post: BlogModel
 
     var body: some View {
         ScrollView {

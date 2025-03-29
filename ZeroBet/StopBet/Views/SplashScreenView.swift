@@ -1,28 +1,39 @@
 import SwiftUI
 
 struct SplashScreenView: View {
-    @State private var showText = false
-    @State private var navigateToWelcome = false
+    @State private var showContent = false
+    @State private var navigateToMain = false
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
 
-            Text("StopBet")
-                .font(.system(size: 48, weight: .bold, design: .rounded))
-                .foregroundColor(.orange)
-                .opacity(showText ? 1 : 0)
-                .scaleEffect(showText ? 1 : 0.8)
-                .animation(.easeIn(duration: 1), value: showText)
+            VStack(spacing: 16) {
+                Image(systemName: "shield.lefthalf.fill") 
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(.orange)
+                    .scaleEffect(showContent ? 1 : 0.6)
+                    .opacity(showContent ? 1 : 0)
+
+                Text("StopBet")
+                    .font(.system(size: 48, weight: .bold, design: .rounded))
+                    .foregroundColor(.orange)
+                    .opacity(showContent ? 1 : 0)
+                    .scaleEffect(showContent ? 1 : 0.8)
+            }
+            .animation(.easeOut(duration: 1), value: showContent)
         }
         .onAppear {
-            showText = true
+            showContent = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                navigateToWelcome = true
+                navigateToMain = true
             }
         }
-        .fullScreenCover(isPresented: $navigateToWelcome) {
+        .fullScreenCover(isPresented: $navigateToMain) {
             MainTabView()
+                .preferredColorScheme(.dark) // caso você queira reforçar modo escuro na próxima tela
         }
     }
 }

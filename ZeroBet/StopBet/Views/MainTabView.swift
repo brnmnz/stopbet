@@ -16,8 +16,8 @@ struct MainTabView: View {
             // Aba Blog
             NavigationStack {
                 BlogSectionView()
-                    .navigationBarHidden(true)
-                    //.navigationTitle("Blog")
+                    .navigationTitle("Blog")
+                    //.navigationBarHidden(true)
             }
             .tabItem {
                 Label("Blog", systemImage: "book.fill")
@@ -25,7 +25,7 @@ struct MainTabView: View {
 
             // Aba Configurações
             NavigationStack {
-                ConfiguracoesView()
+                ConfigurationView()
                     .navigationBarHidden(true)
                     //.navigationTitle("Configurações")
             }
